@@ -14,7 +14,7 @@ export default function Experiences({ onNavigate }: ExperiencesProps) {
       subtitle: 'Get endorsed by George Washington',
       description: 'Meet the first President of the United States and receive a personal endorsement that will echo through eternity. Experience the gravitas of Mount Vernon and witness history\'s most influential leader.',
       era: '1789-1797',
-      price: '$125,000',
+      price: '$1,250,000',
       duration: '3 Days',
       icon: Crown,
       features: [
@@ -31,7 +31,7 @@ export default function Experiences({ onNavigate }: ExperiencesProps) {
       subtitle: 'Acting lessons from Marilyn Monroe',
       description: 'Learn the art of performance from Hollywood\'s most iconic star. Experience the golden age of cinema with private coaching sessions in the glamorous 1950s.',
       era: '1950-1962',
-      price: '$95,000',
+      price: '$950,000',
       duration: '5 Days',
       icon: Star,
       features: [
@@ -48,7 +48,7 @@ export default function Experiences({ onNavigate }: ExperiencesProps) {
       subtitle: 'Dinner with legendary figures',
       description: 'Choose from our curated list of history\'s most fascinating personalities. Dine with Renaissance masters, ancient philosophers, or revolutionary leaders in their own era.',
       era: 'Any Era',
-      price: 'From $75,000',
+      price: 'From $750,000',
       duration: '2-7 Days',
       icon: Utensils,
       features: [
