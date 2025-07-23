@@ -46,7 +46,7 @@ export default function Home({ onNavigate }: HomeProps) {
               }}
             >
               <source src="/chronoluxe-vid2.mp4" type="video/mp4" />
-              <source src="/chronoluxe-bg.webm" type="video/webm" />
+              <source src="/chronoluxe-vid2.webm" type="video/webm" />
             </video>
             {/* Video Overlay */}
             <div className="absolute inset-0 bg-black/60"></div>
