@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Hourglass, ArrowRight, Star, Shield, Zap } from 'lucide-react';
 import type { Page } from '../App';
 
@@ -7,6 +7,8 @@ interface HomeProps {
 }
 
 export default function Home({ onNavigate }: HomeProps) {
+  const [videoError, setVideoError] = useState(false);
+  
   const features = [
     {
       icon: Hourglass,
@@ -29,25 +31,32 @@ export default function Home({ onNavigate }: HomeProps) {
     <div className="relative">
       {/* Hero Section with Video Background */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Video Background */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/Chronoluxe-vid2.mp4" type="video/mp4" />
-            {/* Fallback for browsers that don't support video */}
-          </video>
-          
-          {/* Video Overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/60"></div>
-        </div>
+        {/* Background - Video or Gradient Fallback */}
+        {!videoError ? (
+          <div className="absolute inset-0 z-0">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+              onError={() => {
+                console.log('Video failed to load, falling back to gradient background');
+                setVideoError(true);
+              }}
+            >
+              <source src="/chronoluxe-vid2.mp4" type="video/mp4" />
+              <source src="/chronoluxe-bg.webm" type="video/webm" />
+            </video>
+            {/* Video Overlay */}
+            <div className="absolute inset-0 bg-black/60"></div>
+          </div>
+        ) : (
+          /* Fallback Gradient Background */
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900/80 to-amber-900/20"></div>
+        )}
 
-        {/* Background Effects (now layered over video) */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-br from-black/40 via-gray-900/20 to-amber-900/30"></div>
+        {/* Animated Background Effects */}
         <div className="absolute inset-0 z-10">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/15 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -66,7 +75,7 @@ export default function Home({ onNavigate }: HomeProps) {
             Where luxury meets legacy
           </p>
           
-          <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
+          <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
             Experience history like never before with our precision-engineered time travel watches. 
             Journey through the ages in unparalleled luxury and comfort.
           </p>
