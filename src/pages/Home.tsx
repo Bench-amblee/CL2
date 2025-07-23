@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, ArrowRight, Star, Shield, Zap } from 'lucide-react';
+import { Hourglass, ArrowRight, Star, Shield, Zap } from 'lucide-react';
 import type { Page } from '../App';
 
 interface HomeProps {
@@ -9,7 +9,7 @@ interface HomeProps {
 export default function Home({ onNavigate }: HomeProps) {
   const features = [
     {
-      icon: Clock,
+      icon: Hourglass,
       title: 'Precision Timekeeping',
       description: 'Swiss-engineered temporal navigation with nanosecond accuracy'
     },
@@ -27,29 +27,46 @@ export default function Home({ onNavigate }: HomeProps) {
 
   return (
     <div className="relative">
-      {/* Hero Section */}
+      {/* Hero Section with Video Background */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900/80 to-amber-900/20"></div>
-        <div className="absolute inset-0">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/Chronoluxe_vid.mp4" type="video/mp4" />
+            {/* Fallback for browsers that don't support video */}
+          </video>
+          
+          {/* Video Overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+
+        {/* Background Effects (now layered over video) */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-br from-black/40 via-gray-900/20 to-amber-900/30"></div>
+        <div className="absolute inset-0 z-10">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/15 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-8">
-            <Clock className="h-24 w-24 text-amber-400 mx-auto mb-6 animate-pulse" />
+            <Hourglass className="h-24 w-24 text-amber-400 mx-auto mb-6 animate-pulse" />
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight">
+          <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight drop-shadow-2xl">
             CHRONOLUXE
           </h1>
           
-          <p className="text-2xl md:text-3xl text-amber-400 mb-4 italic font-light">
+          <p className="text-2xl md:text-3xl text-amber-400 mb-4 italic font-light drop-shadow-lg">
             Where luxury meets legacy
           </p>
           
-          <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
             Experience history like never before with our precision-engineered time travel watches. 
             Journey through the ages in unparalleled luxury and comfort.
           </p>
