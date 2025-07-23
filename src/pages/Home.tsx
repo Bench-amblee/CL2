@@ -38,7 +38,7 @@ export default function Home({ onNavigate }: HomeProps) {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/Chronoluxe_vid.mp4" type="video/mp4" />
+            <source src="/Chronoluxe-vid2.mp4" type="video/mp4" />
             {/* Fallback for browsers that don't support video */}
           </video>
           
